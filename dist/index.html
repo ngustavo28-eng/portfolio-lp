@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfólio audiovisual de Gustavo Nascimento.">
+    <meta name="theme-color" content="#131415">
+    <title>Gustavo Nascimento — Portfólio audiovisual</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/catalog.js" defer></script>
+    <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="site-header" data-header>
+      <div class="shell header-inner">
+        <a class="wordmark" href="#topo">Portfólio</a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span>Menu</span>
+          <span class="menu-toggle-lines" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
+          <a href="#trabalhos">Trabalhos</a>
+          <a href="#empresas">Empresas</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- Primeira dobra: capa do demo reel de fundo -->
+      <section class="cover tone-dark" id="topo" aria-labelledby="hero-title">
+        <img class="cover-bg" src="assets/images/capa-vivencia.jpg" alt="">
+        <div class="cover-inner shell">
+          <button class="cover-play" type="button" data-play="demoreel-geral" aria-label="Assistir ao demo reel">
+            <h1 class="cover-name" id="hero-title">Gustavo Nascimento</h1>
+            <span class="cover-title">Demo reel</span>
+            <span class="play-symbol cover-symbol" aria-hidden="true"></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Segunda dobra: quem sou eu + trabalhos, numa tela -->
+      <section class="fold-two" id="trabalhos" aria-labelledby="work-title">
+        <div class="shell whoami" aria-labelledby="whoami-title">
+          <h2 id="whoami-title">Quem sou eu</h2>
+          <p>Creative professional whose path runs from Brazil's biggest YouTube channel (KondZilla) to partner and content leadership at a growing startup. Track record of 300+ paid ads, 100+ podcast episodes, 70+ music videos, social media content, plus cinematography and color on a fiction short film. Content production driven by AI, connected to marketing goals, mainly through YouTube videos and Instagram short-form content.</p>
+        </div>
+
+        <div class="shell work-heading">
+          <h2 id="work-title">Trabalhos</h2>
+        </div>
+
+        <div class="work-tabs-wrap">
+          <div class="shell work-tabs-layout">
+            <div class="work-tabs" role="tablist" aria-label="Tipos de trabalho">
+              <button class="work-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="portfolio-panel" data-category="videoclipes">Videoclipes</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="youtube">YouTube</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="raxaria">Raxaria</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="curta">Curta-metragem</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="anuncios">Mídia paga</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="redes">Redes sociais</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="documentarios">Documentários</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="podcasts">Podcasts</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfolio-panel" role="tabpanel" tabindex="0" aria-labelledby="work-title">
+          <div class="shelf-controls shelf-controls-overlay" aria-label="Navegar pelos trabalhos">
+            <button type="button" data-shelf-previous aria-label="Trabalhos anteriores">←</button>
+            <button type="button" data-shelf-next aria-label="Próximos trabalhos">→</button>
+          </div>
+          <div class="work-shelf" data-work-shelf></div>
+        </div>
+      </section>
+
+      <section class="featured featured-dark tone-dark" aria-labelledby="manifesto-title">
+        <article class="shell project-spread">
+          <div class="spread-copy">
+            <p class="section-label">Projeto em destaque</p>
+            <h2 id="manifesto-title">Manifesto KondZilla</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Contexto definitivo em breve.</p>
+          </div>
+
+          <div class="manifesto-gallery">
+            <button class="media-tile manifesto-main" type="button" data-play="manifesto-video" aria-label="Assistir ao Manifesto KondZilla">
+              <img alt="" data-yt-thumb="5CHdLBsiQRE">
+              <span class="tile-play" aria-hidden="true"></span>
+            </button>
+            <figure class="media-tile"><img alt="Frame do Manifesto KondZilla" data-yt-frame="5CHdLBsiQRE" data-frame-index="1"></figure>
+            <figure class="media-tile"><img alt="Frame do Manifesto KondZilla" data-yt-frame="5CHdLBsiQRE" data-frame-index="2"></figure>
+            <figure class="media-tile"><img alt="Frame do Manifesto KondZilla" data-yt-frame="5CHdLBsiQRE" data-frame-index="3"></figure>
+          </div>
+        </article>
+      </section>
+
+      <section class="featured featured-light" aria-labelledby="raxaria-title">
+        <article class="shell raxaria-spread">
+          <header class="raxaria-head">
+            <div>
+              <p class="section-label">Projeto em destaque</p>
+              <h2 id="raxaria-title">Raxaria</h2>
+            </div>
+            <div class="raxaria-intro">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Informações dos episódios em breve.</p>
+              <button class="text-link" type="button" data-play="raxaria-all">Ver todos os episódios</button>
+            </div>
+          </header>
+
+          <div class="episode-gallery" data-raxaria aria-label="Episódios de Raxaria" aria-busy="true">
+            <span class="media-tile episode-main is-loading"></span>
+            <span class="media-tile is-loading"></span>
+            <span class="media-tile is-loading"></span>
+          </div>
+          <div class="episode-strip" data-raxaria-strip></div>
+        </article>
+      </section>
+
+      <section class="company-section tone-dark" id="empresas" aria-labelledby="company-title">
+        <div class="shell section-heading company-heading">
+          <h2 id="company-title">Empresas</h2>
+          <div class="rail-controls" aria-label="Navegar pelas empresas">
+            <button type="button" data-rail-previous aria-label="Empresa anterior">←</button>
+            <button type="button" data-rail-next aria-label="Próxima empresa">→</button>
+          </div>
+        </div>
+
+        <div class="company-rail" data-company-rail tabindex="0" aria-label="Empresas">
+          <a class="company-card company-one" href="empresa/index.html#gla">
+            <img class="company-bg" alt="" data-yt-thumb="qJHTdMjE1BM">
+            <span class="company-name">Growth Leaders<br>Academy</span>
+            <span class="company-action"><span class="tile-play" aria-hidden="true"></span>Ver trabalhos ↗</span>
+          </a>
+          <a class="company-card company-two" href="empresa/index.html#kondzilla">
+            <img class="company-bg" alt="" data-yt-thumb="XSyhbnqlcYs">
+            <span class="company-name">KondZilla</span>
+            <span class="company-action"><span class="tile-play" aria-hidden="true"></span>Ver trabalhos ↗</span>
+          </a>
+          <a class="company-card company-three" href="empresa/index.html#vivencia">
+            <span class="company-name">Vivência.Lab</span>
+            <span class="company-action">Ver trabalhos ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="about-section" id="sobre" aria-labelledby="about-title">
+        <div class="shell about-card">
+          <div class="about-profile">
+            <div class="about-copy">
+              <h2 id="about-title">Sobre mim</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo sed erat luctus tempor. Curabitur non neque vel justo feugiat malesuada.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Texto definitivo em breve.</p>
+            </div>
+            <figure class="profile-photo" role="img" aria-label="Espaço reservado para uma foto de Gustavo Nascimento">
+              <span>Foto em breve</span>
+            </figure>
+          </div>
+
+          <div class="about-resume">
+            <section class="resume-column" aria-labelledby="education-title">
+              <h3 id="education-title">Formação</h3>
+              <article class="resume-entry">
+                <p>2020—2021</p>
+                <div><strong>FAAP</strong><span>Produção Audiovisual</span></div>
+              </article>
+            </section>
+
+            <section class="resume-column resume-career" aria-labelledby="career-title">
+              <h3 id="career-title">Trajetória</h3>
+              <article class="resume-entry"><p>Atual</p><div><strong>Growth Leaders Academy</strong><span>AI Content Producer</span></div></article>
+              <article class="resume-entry"><p>2021—2022</p><div><strong>KondZilla</strong><span>Video Editor</span></div></article>
+              <article class="resume-entry"><p>2021—2023</p><div><strong>Vivência.Lab</strong><span>Direção de fotografia e cor</span></div></article>
+            </section>
+
+            <section class="resume-column" aria-labelledby="tools-title">
+              <h3 id="tools-title">Ferramentas</h3>
+              <p class="resume-tags">Adobe Creative Cloud · DaVinci Resolve · Figma · Inteligência artificial</p>
+            </section>
+
+            <section class="resume-column" aria-labelledby="skills-title">
+              <h3 id="skills-title">Competências</h3>
+              <p class="resume-tags">Edição · Cinematografia · Motion · Color grading · Conteúdo</p>
+            </section>
+          </div>
+
+          <div class="resume-footer">
+            <span>São Paulo, Brasil</span>
+            <span>Currículo completo em breve</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section tone-dark" id="contato" aria-labelledby="contact-title">
+        <div class="shell contact-grid">
+          <div>
+            <p class="section-label">Contato</p>
+            <h2 id="contact-title">Entre em contato</h2>
+          </div>
+          <div class="contact-links" aria-label="Canais de contato provisórios">
+            <span>E-mail em breve</span>
+            <span>LinkedIn em breve</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer tone-dark">
+      <div class="shell footer-inner">
+        <span>Gustavo Nascimento</span>
+        <span>Portfólio audiovisual · <span data-year></span></span>
+      </div>
+    </footer>
+  </body>
+</html>
