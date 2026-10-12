@@ -1,38 +1,37 @@
 <!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portfólio audiovisual de Gustavo Nascimento.">
-    <meta name="theme-color" content="#131415">
-    <title>Gustavo Nascimento — Portfólio audiovisual</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://i.ytimg.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/catalog.js" defer></script>
-    <script src="assets/js/ui.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Gustavo Nascimento's audiovisual portfolio.">
+<meta name="theme-color" content="#0e1724">
+<title>Portfólio Gustavo Nascimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://i.ytimg.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=036-42">
+<script src="assets/js/catalog.js?v=036-25" defer></script>
+<script src="assets/js/ui.js?v=036-6" defer></script>
+<script src="assets/js/main.js?v=036-8" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Skip to content</a>
 
     <header class="site-header" data-header>
       <div class="shell header-inner">
-        <a class="wordmark" href="#topo">Portfólio</a>
+        <a class="wordmark" href="#topo">Portfolio</a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
           <span>Menu</span>
           <span class="menu-toggle-lines" aria-hidden="true"></span>
         </button>
 
-        <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
-          <a href="#trabalhos">Trabalhos</a>
-          <a href="#empresas">Empresas</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#contato">Contato</a>
+        <nav class="site-nav" id="menu-principal" aria-label="Main navigation">
+          <a href="#trabalhos">Work</a>
+          <a href="#empresas">Companies</a>
+          <a href="#sobre">About</a>
+          <a href="#contato">Contact</a>
         </nav>
       </div>
     </header>
@@ -42,7 +41,7 @@
       <section class="cover tone-dark" id="topo" aria-labelledby="hero-title">
         <img class="cover-bg" src="assets/images/capa-vivencia.jpg" alt="">
         <div class="cover-inner shell">
-          <button class="cover-play" type="button" data-play="demoreel-geral" aria-label="Assistir ao demo reel">
+          <button class="cover-play" type="button" data-play="demoreel-geral" aria-label="Watch the demo reel">
             <h1 class="cover-name" id="hero-title">Gustavo Nascimento</h1>
             <span class="cover-title">Demo reel</span>
             <span class="play-symbol cover-symbol" aria-hidden="true"></span>
@@ -53,103 +52,360 @@
       <!-- Segunda dobra: quem sou eu + trabalhos, numa tela -->
       <section class="fold-two" id="trabalhos" aria-labelledby="work-title">
         <div class="shell whoami" aria-labelledby="whoami-title">
-          <h2 id="whoami-title">Quem sou eu</h2>
+          <h2 id="whoami-title">Who I am</h2>
           <p>Creative professional whose path runs from Brazil's biggest YouTube channel (KondZilla) to partner and content leadership at a growing startup. Track record of 300+ paid ads, 100+ podcast episodes, 70+ music videos, social media content, plus cinematography and color on a fiction short film. Content production driven by AI, connected to marketing goals, mainly through YouTube videos and Instagram short-form content.</p>
-        </div>
-
-        <div class="shell work-heading">
-          <h2 id="work-title">Trabalhos</h2>
         </div>
 
         <div class="work-tabs-wrap">
           <div class="shell work-tabs-layout">
-            <div class="work-tabs" role="tablist" aria-label="Tipos de trabalho">
-              <button class="work-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="portfolio-panel" data-category="videoclipes">Videoclipes</button>
+            <h2 class="work-tabs-title" id="work-title">Work</h2>
+            <span class="work-tabs-divider" aria-hidden="true"></span>
+            <div class="work-tabs" role="tablist" aria-label="Work categories">
+              <button class="work-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="portfolio-panel" data-category="videoclipes">Music videos</button>
               <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="youtube">YouTube</button>
               <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="raxaria">Raxaria</button>
-              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="curta">Curta-metragem</button>
-              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="anuncios">Mídia paga</button>
-              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="redes">Redes sociais</button>
-              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="documentarios">Documentários</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="curta">Short film</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="redes">Social media</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="anuncios">Paid media</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="documentarios">Documentaries</button>
+              <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="manifestos">Manifesto videos</button>
               <button class="work-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-panel" data-category="podcasts">Podcasts</button>
             </div>
           </div>
         </div>
 
         <div id="portfolio-panel" role="tabpanel" tabindex="0" aria-labelledby="work-title">
-          <div class="shelf-controls shelf-controls-overlay" aria-label="Navegar pelos trabalhos">
-            <button type="button" data-shelf-previous aria-label="Trabalhos anteriores">←</button>
-            <button type="button" data-shelf-next aria-label="Próximos trabalhos">→</button>
+          <div class="shelf-controls shelf-controls-overlay" aria-label="Browse work">
+            <button type="button" data-shelf-previous aria-label="Previous work">←</button>
+            <button type="button" data-shelf-next aria-label="Next work">→</button>
           </div>
           <div class="work-shelf" data-work-shelf></div>
+          <p class="work-role shell" data-work-role><strong>Role:</strong> Video Editor</p>
         </div>
       </section>
 
-      <section class="featured featured-dark tone-dark" aria-labelledby="manifesto-title">
-        <article class="shell project-spread">
+      <section class="highlights-intro" aria-labelledby="highlights-title">
+        <div class="shell work-heading">
+          <h2 id="highlights-title">Highlights</h2>
+        </div>
+      </section>
+
+      <section class="featured featured-light" aria-labelledby="gambi-title">
+        <article class="shell project-spread project-spread-copy-heavy">
           <div class="spread-copy">
-            <p class="section-label">Projeto em destaque</p>
-            <h2 id="manifesto-title">Manifesto KondZilla</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Contexto definitivo em breve.</p>
+            <h2 id="gambi-title">GambiCast &amp; GambiDay</h2>
+            <p class="project-role"><strong>Role</strong><span>Content Coordinator</span></p>
+            <div class="project-copy-body">
+              <p>Built around <em>gambiarra</em>, the Brazilian art of finding creative solutions with available resources, these projects helped marketing professionals use technology and AI to gain more autonomy.</p>
+              <p>For GambiCast, I developed the production process from scripting and visual direction to filming, editing, and animation. The show grew from zero to over 20K views across two seasons.</p>
+              <p>For GambiDay, a two-day hybrid event with eight-hour live broadcasts, I led audiovisual preparation and the first edition’s live production, then supervised the second. I also coordinated campaign videos and sketches. The event launched GambiAcademy, the company’s learning platform for technology, no-code, and Artificial intelligence.</p>
+            </div>
           </div>
 
-          <div class="manifesto-gallery">
-            <button class="media-tile manifesto-main" type="button" data-play="manifesto-video" aria-label="Assistir ao Manifesto KondZilla">
-              <img alt="" data-yt-thumb="5CHdLBsiQRE">
+          <div class="gambi-gallery">
+            <button class="media-tile gambi-main" type="button" data-play="gambicast-s2-12" aria-label="Watch GambiCast season 2, episode 12 with playlist">
+              <img alt="GambiCast season 2, episode 12" data-yt-thumb="9hn8UuyIHPE">
               <span class="tile-play" aria-hidden="true"></span>
             </button>
-            <figure class="media-tile"><img alt="Frame do Manifesto KondZilla" data-yt-frame="5CHdLBsiQRE" data-frame-index="1"></figure>
-            <figure class="media-tile"><img alt="Frame do Manifesto KondZilla" data-yt-frame="5CHdLBsiQRE" data-frame-index="2"></figure>
-            <figure class="media-tile"><img alt="Frame do Manifesto KondZilla" data-yt-frame="5CHdLBsiQRE" data-frame-index="3"></figure>
+            <div class="gambi-bottom-row">
+              <button class="media-tile" type="button" data-play="yt-gambiday" aria-label="Watch GambiDay">
+                <img src="assets/images/capa-gambiday.png" loading="lazy" decoding="async" alt="GambiDay">
+                <span class="tile-play" aria-hidden="true"></span>
+              </button>
+              <button class="media-tile gambi-course-tile" type="button" data-play="course-social-interview" aria-label="Watch social media course video: A entrevista">
+                <img src="assets/images/gambiday/a-entrevista.jpg" loading="lazy" decoding="async" alt="A entrevista">
+                <span class="tile-play" aria-hidden="true"></span>
+              </button>
+              <button class="media-tile gambi-course-tile" type="button" data-play="course-social-nightmare" aria-label="Watch social media course video: O pesadelo">
+                <img src="assets/images/gambiday/o-pesadelo.jpg" loading="lazy" decoding="async" alt="O pesadelo">
+                <span class="tile-play" aria-hidden="true"></span>
+              </button>
+              <button class="media-tile gambi-course-tile" type="button" data-play="course-social-gambiarras" aria-label="Watch social media course video: As gambiarras">
+                <img src="assets/images/gambiday/as-gambiarras.jpg" loading="lazy" decoding="async" alt="As gambiarras">
+                <span class="tile-play" aria-hidden="true"></span>
+              </button>
+            </div>
           </div>
         </article>
       </section>
 
-      <section class="featured featured-light" aria-labelledby="raxaria-title">
-        <article class="shell raxaria-spread">
-          <header class="raxaria-head">
-            <div>
-              <p class="section-label">Projeto em destaque</p>
-              <h2 id="raxaria-title">Raxaria</h2>
-            </div>
-            <div class="raxaria-intro">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Informações dos episódios em breve.</p>
-              <button class="text-link" type="button" data-play="raxaria-all">Ver todos os episódios</button>
-            </div>
-          </header>
+      <section class="featured featured-dark tone-dark" aria-labelledby="manifesto-title">
+        <article class="shell manifesto-layout">
+          <button class="media-tile manifesto-video" type="button" data-play="manifesto-video" aria-label="Watch the KondZilla Manifesto">
+            <img src="assets/images/manifesto/frame-00.jpg" loading="lazy" decoding="async" alt="KondZilla Manifesto">
+            <span class="tile-play" aria-hidden="true"></span>
+          </button>
 
-          <div class="episode-gallery" data-raxaria aria-label="Episódios de Raxaria" aria-busy="true">
+          <div class="spread-copy manifesto-copy">
+            <h2 id="manifesto-title">KondZilla Video Manifesto</h2>
+            <p class="project-role"><strong>Role</strong><span>Full Post-Production</span></p>
+            <div class="project-copy-body">
+              <p>KondZilla is Brazil’s largest YouTube channel, known for funk music videos. Its portfolio also includes productions for streaming platforms, such as <em>Sintonia</em>, the most-watched series on Netflix in 2019, and advertising campaigns for brands such as Coca-Cola, Adidas, and Nubank.</p>
+              <p>Starting with the voice-over narration, I built the film’s visual story by curating existing footage. Drawing on my in-depth knowledge of the brand, I brought the script to life without the need for additional filming.</p>
+              <p>The film serves as a strategic brand positioning asset in meetings with major streaming platforms and CEO presentations, including international events such as Web Summit 2022 in Portugal.</p>
+            </div>
+          </div>
+
+          <div class="manifesto-gallery" aria-label="KondZilla Manifesto gallery">
+            <button class="media-tile" type="button" data-play="manifesto-frame-06" aria-label="Enlarge KondZilla institutional frame 06"><img src="assets/images/manifesto/frame-06.jpg" loading="lazy" decoding="async" alt="KondZilla institutional frame 06"></button>
+            <button class="media-tile" type="button" data-play="manifesto-frame-01" aria-label="Enlarge KondZilla institutional frame 01"><img src="assets/images/manifesto/frame-01.jpg" loading="lazy" decoding="async" alt="KondZilla institutional frame 01"></button>
+            <button class="media-tile" type="button" data-play="manifesto-frame-02" aria-label="Enlarge KondZilla institutional frame 02"><img src="assets/images/manifesto/frame-02.jpg" loading="lazy" decoding="async" alt="KondZilla institutional frame 02"></button>
+            <button class="media-tile" type="button" data-play="manifesto-frame-03" aria-label="Enlarge KondZilla institutional frame 03"><img src="assets/images/manifesto/frame-03.jpg" loading="lazy" decoding="async" alt="KondZilla institutional frame 03"></button>
+            <button class="media-tile" type="button" data-play="manifesto-frame-04" aria-label="Enlarge KondZilla institutional frame 04"><img src="assets/images/manifesto/frame-04.jpg" loading="lazy" decoding="async" alt="KondZilla institutional frame 04"></button>
+            <button class="media-tile" type="button" data-play="manifesto-frame-05" aria-label="Enlarge KondZilla institutional frame 05"><img src="assets/images/manifesto/frame-05.jpg" loading="lazy" decoding="async" alt="KondZilla institutional frame 05"></button>
+          </div>
+        </article>
+      </section>
+
+      <section class="featured featured-light" aria-labelledby="short-film-title">
+        <article class="shell short-film-layout">
+          <div class="spread-copy">
+            <h2 id="short-film-title">Short Film: A Dream from the Outskirts</h2>
+            <p class="project-role"><strong>Role</strong><span>Director of Photography &amp; Colorist</span></p>
+            <div class="project-copy-body">
+              <p>Part of a three-film project by Vivência.Lab exploring fashion and culture in Brazilian favelas, <em>O Sonho Periférico</em> connects material desires with dreams of progress and belonging.</p>
+              <p>I was responsible for cinematography and color grading, creating a soft, desaturated, dreamlike look. My work also included visual direction, camera operation, location scouting, budgeting, and shooting schedules.</p>
+              <p>The project received coverage in major Brazilian media outlets, including <em>Folha de S.Paulo</em>, <em>Estadão</em>, and <em>FFW</em>, and was supported by the São Paulo Department of Culture.</p>
+            </div>
+          </div>
+
+          <button class="media-tile short-film-video" type="button" data-play="curta-01" aria-label="Watch A Dream from the Outskirts">
+            <img src="assets/images/capa-vivencia.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts">
+            <span class="tile-play" aria-hidden="true"></span>
+          </button>
+
+          <div class="manifesto-gallery">
+            <button class="media-tile" type="button" data-play="sonho-periferico-frame-01" aria-label="Enlarge short film frame 01"><img src="assets/images/frames-sonho-periferico/frame-01.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts frame 01"></button>
+            <button class="media-tile" type="button" data-play="sonho-periferico-frame-05" aria-label="Enlarge short film frame 05"><img src="assets/images/frames-sonho-periferico/frame-05.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts frame 05"></button>
+            <button class="media-tile" type="button" data-play="sonho-periferico-frame-06" aria-label="Enlarge short film frame 06"><img src="assets/images/frames-sonho-periferico/frame-06.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts frame 06"></button>
+            <button class="media-tile" type="button" data-play="sonho-periferico-frame-11" aria-label="Enlarge short film frame 11"><img src="assets/images/frames-sonho-periferico/frame-11.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts frame 11"></button>
+            <button class="media-tile" type="button" data-play="sonho-periferico-frame-12" aria-label="Enlarge short film frame 12"><img src="assets/images/frames-sonho-periferico/frame-12.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts frame 12"></button>
+            <button class="media-tile" type="button" data-play="sonho-periferico-frame-13" aria-label="Enlarge short film frame 13"><img src="assets/images/frames-sonho-periferico/frame-13.jpg" loading="lazy" decoding="async" alt="A Dream from the Outskirts frame 13"></button>
+          </div>
+        </article>
+      </section>
+
+      <section class="featured featured-dark tone-dark" aria-labelledby="raxaria-title">
+        <article class="shell raxaria-layout">
+          <div class="episode-gallery" data-raxaria aria-label="Selected Raxaria episodes" aria-busy="true">
             <span class="media-tile episode-main is-loading"></span>
+          </div>
+          <div class="spread-copy raxaria-copy">
+            <h2 id="raxaria-title">Sketch Program: Raxaria</h2>
+            <p class="project-role"><strong>Role</strong><span>Video Editor</span></p>
+            <div class="project-copy-body">
+              <p><em>Raxaria</em> was a comedy show created by one of KondZilla’s directors. It started on the Portal KondZilla YouTube channel before moving to its own channel, which grew to over 500K subscribers.</p>
+              <p>I edited comedy sketches, using storytelling and comedic timing to keep audiences engaged. The format also helped KondZilla’s early TikTok growth in 2021, with videos reaching over 4 million views.</p>
+              <p>I later applied this approach to social media content, paid media, and brand awareness campaigns, including projects that mixed entertainment with branded content.</p>
+            </div>
+          </div>
+          <div class="raxaria-episode-rail" data-raxaria-rail aria-label="More Raxaria episodes">
+            <span class="media-tile is-loading"></span>
+            <span class="media-tile is-loading"></span>
             <span class="media-tile is-loading"></span>
             <span class="media-tile is-loading"></span>
           </div>
-          <div class="episode-strip" data-raxaria-strip></div>
+        </article>
+      </section>
+
+      <section class="featured featured-light" aria-labelledby="riddles-title">
+        <article class="shell project-spread riddles-layout">
+          <div class="spread-copy">
+            <h2 id="riddles-title">RD Summit Riddles Campaign</h2>
+            <p class="project-role"><strong>Role</strong><span>Content Coordinator</span></p>
+            <div class="project-copy-body">
+              <p>A lead generation campaign for RD Summit, Brazil’s largest marketing event, using riddles and prizes to build brand awareness through gamification.</p>
+              <p>After the success of the first edition, we created a more elaborate campaign. I helped develop the video concepts and scripts and led audiovisual production for comedy sketches about participants’ obsession with the game.</p>
+              <p>We also created “Glaze,” a video that used the buzz around the Blaze controversy in Brazil at the time, linking the topic to a guessing game about RD Summit’s surprise musical act.</p>
+            </div>
+          </div>
+
+          <div class="featured-media-grid riddles-media-grid">
+            <button class="media-tile vimeo-tile vimeo-enigmas" type="button" data-play="riddles-enigmas" aria-label="Watch Enigmas RD Summit 2023">
+              <img src="assets/images/riddles/enigmas.jpg" loading="lazy" decoding="async" alt="Enigmas RD Summit 2023">
+              <span class="tile-play" aria-hidden="true"></span>
+            </button>
+            <button class="media-tile vimeo-tile vimeo-glaze" type="button" data-play="riddles-glaze" aria-label="Watch Glaze">
+              <img src="assets/images/riddles/glaze.jpg" loading="lazy" decoding="async" alt="Blaze logo">
+              <span class="tile-play" aria-hidden="true"></span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="featured featured-dark tone-dark" aria-labelledby="mentorship-title">
+        <article class="shell career-layout">
+          <div class="career-intro">
+            <div class="spread-copy">
+              <h2 id="mentorship-title">Career Mentorship Campaign</h2>
+              <p class="project-role"><strong>Role</strong><span>Content Coordinator</span></p>
+              <div class="project-copy-body">
+                <p><em>Mentoria de Carreira</em> is a career-development product built from scratch with key stakeholders and launched through three campaigns over one year.</p>
+                <p>I helped develop the content concept and strategy, combining livestreams, social media, paid media, and inbound marketing in campaigns lasting two to three months.</p>
+                <p>Two of the three campaigns achieved over 10x ROAS, delivering the company’s best B2C results to date. The program also helped over 200 clients advance their careers through raises, promotions, and new job opportunities.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="career-media-board">
+            <section class="career-media-group career-media-group--panel career-lives-group" aria-labelledby="career-lives-title">
+              <div class="career-group-heading">
+                <h3 id="career-lives-title">Lives</h3>
+              </div>
+              <div class="career-lives-grid">
+                <button class="media-tile career-live-main" type="button" data-play="mentorship-live-leadership" aria-label="Watch Carreira de Marketing 2026">
+                  <img data-yt-thumb="iuLR9tgY-uY" loading="lazy" decoding="async" alt="Carreira de Marketing 2026">
+                  <span class="tile-play" aria-hidden="true"></span>
+                </button>
+                <div class="career-lives-rail-wrap">
+                  <div class="career-lives-rail" aria-label="More Career Mentorship lives">
+                  <button class="media-tile" type="button" data-play="mentorship-live-salary" aria-label="Watch Como negociar promoção e salário">
+                    <img data-yt-thumb="V1559smG-34" loading="lazy" decoding="async" alt="Como negociar promoção e salário">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="mentorship-live-generalists" aria-label="Watch O melhor plano de carreira para generalistas">
+                    <img data-yt-thumb="-0J3kxRu104" loading="lazy" decoding="async" alt="O melhor plano de carreira para generalistas">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="mentorship-live-hidden-jobs" aria-label="Watch Como acessar as vagas escondidas">
+                    <img data-yt-thumb="wQ-AFyIVIiA" loading="lazy" decoding="async" alt="Como acessar as vagas escondidas">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="mentorship-live-c-level" aria-label="Watch A jornada para se tornar C-Level">
+                    <img data-yt-thumb="Ghp1kO8PD2I" loading="lazy" decoding="async" alt="A jornada para se tornar C-Level">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="mentorship-live-strategy" aria-label="Watch Career Mentorship live">
+                    <img data-yt-thumb="g6KMVS-mPtE" loading="lazy" decoding="async" alt="Career Mentorship live">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="mentorship-live-growth" aria-label="Watch Career Mentorship live">
+                    <img data-yt-thumb="2LIzavpPKN4" loading="lazy" decoding="async" alt="Career Mentorship live">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="mentorship-live-career" aria-label="Watch Career Mentorship live">
+                    <img data-yt-thumb="w3yRZoqDsNg" loading="lazy" decoding="async" alt="Career Mentorship live">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  </div>
+                  <div class="career-live-controls" aria-label="Browse more lives">
+                    <button type="button" data-career-lives-previous aria-label="Previous lives">←</button>
+                    <button type="button" data-career-lives-next aria-label="Next lives">→</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="career-support-stack">
+              <section class="career-media-group career-media-group--panel career-paid-group" aria-labelledby="career-paid-title">
+                <div class="career-group-heading">
+                  <h3 id="career-paid-title">Paid media</h3>
+                </div>
+                <div class="career-short-grid">
+                <button class="media-tile" type="button" data-play="ads-vagas-epicas" aria-label="Watch Epic Job Openings">
+                  <img src="assets/images/paid-media/15-vagas-epicas.webp" loading="lazy" decoding="async" alt="Epic Job Openings">
+                  <span class="tile-play" aria-hidden="true"></span>
+                </button>
+                <button class="media-tile" type="button" data-play="ads-plano-de-carreira" aria-label="Watch How to Build a Career Plan">
+                  <img src="assets/images/paid-media/04-plano-de-carreira.webp" loading="lazy" decoding="async" alt="How to Build a Career Plan">
+                  <span class="tile-play" aria-hidden="true"></span>
+                </button>
+                <button class="media-tile" type="button" data-play="ads-como-conseguiu-seu-cargo" aria-label="Watch How Did You Land Your Role?">
+                  <img src="assets/images/paid-media/17-como-conseguiu-seu-cargo.webp" loading="lazy" decoding="async" alt="How Did You Land Your Role?">
+                  <span class="tile-play" aria-hidden="true"></span>
+                </button>
+                <button class="media-tile" type="button" data-play="ads-top-5-erros" aria-label="Watch Top 5 Career Mistakes">
+                  <img src="assets/images/paid-media/13-top-5-erros-de-carreira.webp" loading="lazy" decoding="async" alt="Top 5 Career Mistakes">
+                  <span class="tile-play" aria-hidden="true"></span>
+                </button>
+                <button class="media-tile" type="button" data-play="ads-executor-de-confianca" aria-label="Watch A Trusted Operator">
+                  <img data-yt-thumb="Y6KoNZlfZSs" loading="lazy" decoding="async" alt="A Trusted Operator">
+                  <span class="tile-play" aria-hidden="true"></span>
+                </button>
+                </div>
+              </section>
+
+              <section class="career-media-group career-media-group--panel career-social-showcase" aria-labelledby="career-social-title">
+            <div class="career-group-heading">
+              <h3 id="career-social-title">Social media</h3>
+            </div>
+            <div class="career-short-grid career-social-grid">
+                  <button class="media-tile" type="button" data-play="instagram-01" aria-label="Watch Instagram Reel">
+                    <img src="assets/images/instagram/DI6gCqvgKnD.jpg?v=20261011" loading="lazy" decoding="async" alt="Instagram Reel">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="instagram-02" aria-label="Watch Instagram Reel">
+                    <img src="assets/images/instagram/DIhjz2OAGgt.jpg?v=20261011" loading="lazy" decoding="async" alt="Instagram Reel">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="instagram-07" aria-label="Watch Instagram Reel">
+                    <img src="assets/images/instagram/DHmP4VdhXCM.jpg?v=20261011" loading="lazy" decoding="async" alt="Instagram Reel">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="instagram-13" aria-label="Watch Instagram Reel">
+                    <img src="assets/images/instagram/DIoTRsCMs4A.jpg?v=20261011" loading="lazy" decoding="async" alt="Instagram Reel">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="instagram-27" aria-label="Watch Instagram Reel">
+                    <img src="assets/images/instagram/DIUibKuhUZs.jpg?v=20261011" loading="lazy" decoding="async" alt="Instagram Reel">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+                  <button class="media-tile" type="button" data-play="instagram-12" aria-label="Watch Instagram Reel">
+                    <img src="assets/images/instagram/DKcawGJA5q2.jpg?v=20261011" loading="lazy" decoding="async" alt="Instagram Reel">
+                    <span class="tile-play" aria-hidden="true"></span>
+                  </button>
+            </div>
+              </section>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="featured featured-light" aria-labelledby="elevenlabs-title">
+        <article class="shell project-spread project-spread-copy-heavy">
+          <div class="spread-copy">
+            <h2 id="elevenlabs-title">How ElevenLabs Scaled to US$600 Million in ARR</h2>
+            <p class="project-role"><strong>Role</strong><span>AI Content Producer</span></p>
+            <div class="project-copy-body">
+              <p>A business case study about ElevenLabs, produced with AI tools to make editing faster.</p>
+              <p>I created a custom AI skill to review footage, remove mistakes, select the best takes, and build a first cut based on the script. I also used AI to develop and create animations, find relevant visual inserts, and add them to the edit.</p>
+              <p>AI helped me complete a 10-minute video in around eight hours instead of the two days it would normally take, while I remained responsible for creative decisions and the final edit.</p>
+            </div>
+          </div>
+
+          <div class="featured-media-grid featured-media-grid-single">
+            <button class="media-tile" type="button" data-play="elevenlabs-video" aria-label="Watch How ElevenLabs Scaled to US$600 Million in ARR">
+              <img alt="How ElevenLabs Scaled to US$600 Million in ARR" data-yt-thumb="oVYm9jW07O8">
+              <span class="tile-play" aria-hidden="true"></span>
+            </button>
+          </div>
         </article>
       </section>
 
       <section class="company-section tone-dark" id="empresas" aria-labelledby="company-title">
         <div class="shell section-heading company-heading">
-          <h2 id="company-title">Empresas</h2>
-          <div class="rail-controls" aria-label="Navegar pelas empresas">
-            <button type="button" data-rail-previous aria-label="Empresa anterior">←</button>
-            <button type="button" data-rail-next aria-label="Próxima empresa">→</button>
+          <h2 id="company-title">Companies</h2>
+          <div class="rail-controls" aria-label="Browse companies">
+            <button type="button" data-rail-previous aria-label="Previous company">←</button>
+            <button type="button" data-rail-next aria-label="Next company">→</button>
           </div>
         </div>
 
-        <div class="company-rail" data-company-rail tabindex="0" aria-label="Empresas">
+        <div class="company-rail" data-company-rail tabindex="0" aria-label="Companies">
           <a class="company-card company-one" href="empresa/index.html#gla">
-            <img class="company-bg" alt="" data-yt-thumb="qJHTdMjE1BM">
+            <img class="company-bg" src="assets/images/companies/gla-logo.png" loading="lazy" decoding="async" alt="">
             <span class="company-name">Growth Leaders<br>Academy</span>
-            <span class="company-action"><span class="tile-play" aria-hidden="true"></span>Ver trabalhos ↗</span>
+            <span class="company-action"><span class="tile-play" aria-hidden="true"></span>View work ↗</span>
           </a>
           <a class="company-card company-two" href="empresa/index.html#kondzilla">
-            <img class="company-bg" alt="" data-yt-thumb="XSyhbnqlcYs">
+            <img class="company-bg" src="assets/images/companies/kondzilla-logo.png" loading="lazy" decoding="async" alt="">
             <span class="company-name">KondZilla</span>
-            <span class="company-action"><span class="tile-play" aria-hidden="true"></span>Ver trabalhos ↗</span>
+            <span class="company-action"><span class="tile-play" aria-hidden="true"></span>View work ↗</span>
           </a>
           <a class="company-card company-three" href="empresa/index.html#vivencia">
+            <img class="company-bg" src="assets/images/companies/vivencia-lab-logo.png" loading="lazy" decoding="async" alt="">
             <span class="company-name">Vivência.Lab</span>
-            <span class="company-action">Ver trabalhos ↗</span>
+            <span class="company-action">View work ↗</span>
           </a>
         </div>
       </section>
@@ -158,45 +414,60 @@
         <div class="shell about-card">
           <div class="about-profile">
             <div class="about-copy">
-              <h2 id="about-title">Sobre mim</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo sed erat luctus tempor. Curabitur non neque vel justo feugiat malesuada.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Texto definitivo em breve.</p>
+              <h2 id="about-title">Who I am</h2>
+              <p>Creative professional whose path runs from Brazil's biggest YouTube channel (KondZilla) to partner and content leadership at a growing startup. Track record of 300+ paid ads, 100+ podcast episodes, 70+ music videos, social media content, plus cinematography and color on a fiction short film. Content production driven by AI, connected to marketing goals, mainly through YouTube videos and Instagram short-form content.</p>
             </div>
-            <figure class="profile-photo" role="img" aria-label="Espaço reservado para uma foto de Gustavo Nascimento">
-              <span>Foto em breve</span>
+            <figure class="profile-photo">
+              <img src="assets/images/gustavo-profile.jpg" alt="Gustavo Nascimento" loading="lazy" decoding="async">
             </figure>
           </div>
 
+          <section class="about-timeline" aria-label="Career timeline">
+            <ol class="about-timeline-list">
+              <li><p>Feb 2021 — Apr 2022</p><div><strong>Video Editor</strong><span>KondZilla</span></div></li>
+              <li><p>Aug 2021 — Aug 2023</p><div><strong>Director of Photography &amp; Colorist</strong><span>Vivência.Lab · Part-time</span></div></li>
+              <li><p>Mar 2022 — Mar 2023</p><div><strong>Senior Filmmaker</strong><span>Growth Leaders Academy</span></div></li>
+              <li><p>Since Mar 2023</p><div><strong>Partner</strong><span>Growth Leaders Academy</span></div></li>
+              <li><p>Mar 2023 — Nov 2025</p><div><strong>Content &amp; Audiovisual Coordinator</strong><span>Growth Leaders Academy</span></div></li>
+              <li><p>Nov 2025 — Present</p><div><strong>AI Content Producer</strong><span>Growth Leaders Academy</span></div></li>
+            </ol>
+          </section>
+
           <div class="about-resume">
             <section class="resume-column" aria-labelledby="education-title">
-              <h3 id="education-title">Formação</h3>
+              <h3 id="education-title">Education</h3>
               <article class="resume-entry">
                 <p>2020—2021</p>
-                <div><strong>FAAP</strong><span>Produção Audiovisual</span></div>
+                <div><strong>FAAP</strong><span>Audiovisual Production</span></div>
               </article>
+              <section class="resume-languages" aria-labelledby="languages-title">
+                <h3 id="languages-title">Languages</h3>
+                <p>Portuguese (native) · English (intermediate, B2)</p>
+              </section>
             </section>
 
-            <section class="resume-column resume-career" aria-labelledby="career-title">
-              <h3 id="career-title">Trajetória</h3>
-              <article class="resume-entry"><p>Atual</p><div><strong>Growth Leaders Academy</strong><span>AI Content Producer</span></div></article>
-              <article class="resume-entry"><p>2021—2022</p><div><strong>KondZilla</strong><span>Video Editor</span></div></article>
-              <article class="resume-entry"><p>2021—2023</p><div><strong>Vivência.Lab</strong><span>Direção de fotografia e cor</span></div></article>
+            <section class="resume-column" aria-labelledby="certifications-title">
+              <h3 id="certifications-title">Certifications</h3>
+              <article class="resume-entry"><p>2026</p><div><strong>Creators Business, Consulting</strong><span>Vinci Society</span></div></article>
+              <article class="resume-entry"><p>2025</p><div><strong>AI Video Creator Pro</strong><span>Human Academy</span></div></article>
+              <article class="resume-entry"><p>2024</p><div><strong>Criativos “Criativos”, Copywriting Workshop</strong><span>Leandro Aguiari</span></div></article>
+              <article class="resume-entry"><p>2019</p><div><strong>Cinema</strong><span>É Nóis na Fita</span></div></article>
+              <article class="resume-entry"><p>2017</p><div><strong>Video Editing &amp; Finishing</strong><span>Senac Brasil</span></div></article>
             </section>
 
             <section class="resume-column" aria-labelledby="tools-title">
-              <h3 id="tools-title">Ferramentas</h3>
-              <p class="resume-tags">Adobe Creative Cloud · DaVinci Resolve · Figma · Inteligência artificial</p>
+              <h3 id="tools-title">Tools</h3>
+              <p class="resume-tags">Adobe Creative Cloud · DaVinci Resolve · Figma · Claude · Digen · Google Flow · HeyGen · ElevenLabs · Adobe Firefly</p>
             </section>
 
             <section class="resume-column" aria-labelledby="skills-title">
-              <h3 id="skills-title">Competências</h3>
-              <p class="resume-tags">Edição · Cinematografia · Motion · Color grading · Conteúdo</p>
+              <h3 id="skills-title">Skills</h3>
+              <p class="resume-tags">Cinematography · Camera operation · Editing · Animation · Color grading · AI · Inbound marketing · Launch funnels · Copywriting · Paid media · Social media</p>
             </section>
           </div>
 
           <div class="resume-footer">
-            <span>São Paulo, Brasil</span>
-            <span>Currículo completo em breve</span>
+            <span>São Paulo, Brazil</span>
           </div>
         </div>
       </section>
@@ -204,12 +475,13 @@
       <section class="contact-section tone-dark" id="contato" aria-labelledby="contact-title">
         <div class="shell contact-grid">
           <div>
-            <p class="section-label">Contato</p>
-            <h2 id="contact-title">Entre em contato</h2>
+            <p class="section-label">Contact</p>
+            <h2 id="contact-title">Get in touch</h2>
           </div>
-          <div class="contact-links" aria-label="Canais de contato provisórios">
-            <span>E-mail em breve</span>
-            <span>LinkedIn em breve</span>
+          <div class="contact-links" aria-label="Contact channels">
+            <a href="mailto:contato.ngustavo@gmail.com">contato.ngustavo@gmail.com</a>
+            <a href="https://wa.me/5511969224853?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener noreferrer">+55 11 96922-4853</a>
+            <a href="https://www.linkedin.com/in/gustavonasc/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           </div>
         </div>
       </section>
@@ -218,8 +490,9 @@
     <footer class="site-footer tone-dark">
       <div class="shell footer-inner">
         <span>Gustavo Nascimento</span>
-        <span>Portfólio audiovisual · <span data-year></span></span>
+        <span>Audiovisual portfolio · <span data-year></span></span>
       </div>
     </footer>
-  </body>
+</body>
 </html>
+
