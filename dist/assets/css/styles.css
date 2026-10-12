@@ -2576,7 +2576,7 @@ button.media-tile[data-play="ads-executor-de-confianca"]:focus-visible img {
   /* No vertical, o novo recorte devolve um pouco da composição para a esquerda
      sem alterar o enquadramento aprovado no desktop. */
   .cover-bg {
-    object-position: 50% center;
+    object-position: 48% center;
   }
 
   .work-shelf {
