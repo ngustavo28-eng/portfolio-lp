@@ -2573,6 +2573,13 @@ button.media-tile[data-play="ads-executor-de-confianca"]:focus-visible img {
     font-size: 16px;
   }
 
+  /* Na vertical, o guarda-chuva concentra muito peso à esquerda. Um recorte
+     levemente mais à esquerda desloca a composição visível para a direita,
+     preservando o enquadramento central já aprovado no desktop. */
+  .cover-bg {
+    object-position: 46% center;
+  }
+
   .work-shelf {
     grid-auto-columns: calc((100vw - var(--shelf-left) - var(--shelf-gap)) / 1.3);
   }
