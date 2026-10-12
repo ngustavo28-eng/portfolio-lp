@@ -38,6 +38,7 @@ document.querySelectorAll('[data-yt-frame]').forEach((img) => {
 
 const workTabs = [...document.querySelectorAll('[data-category]')];
 const workShelf = document.querySelector('[data-work-shelf]');
+const workRole = document.querySelector('[data-work-role]');
 let activeCategory = workTabs[0]?.dataset.category || 'youtube';
 let renderToken = 0;
 
@@ -71,10 +72,19 @@ function renderCategory(categoryKey, focusTab = false) {
   updateTabs(categoryKey, focusTab);
   workShelf.classList.toggle('is-square', square);
   workShelf.scrollTo({ left: 0 });
+  if (workRole) {
+    workRole.hidden = !category.role;
+    if (category.role) workRole.innerHTML = `<strong>Role:</strong> ${category.role}`;
+  }
 
   const paint = (items) => {
     if (token !== renderToken) return;
-    workShelf.replaceChildren(...items.map((item, index) => UI.createShelfCard(item, index, {
+    // A empresa mantém Mercado Livre na abertura da própria página; na vitrine
+    // principal ele aparece uma única vez, no fechamento da sequência de YouTube.
+    const ordered = categoryKey === 'youtube'
+      ? [...items.filter((item) => item.id !== 'yt-gla-mercado-livre'), ...items.filter((item) => item.id === 'yt-gla-mercado-livre')]
+      : items;
+    workShelf.replaceChildren(...ordered.map((item, index) => UI.createShelfCard(item, index, {
       square,
       hideTitles: category.hideTitles,
     })));
@@ -145,35 +155,35 @@ const companyRail = document.querySelector('[data-company-rail]');
 document.querySelector('[data-rail-previous]')?.addEventListener('click', () => moveHorizontalRail(companyRail, -1, '.company-card'));
 document.querySelector('[data-rail-next]')?.addEventListener('click', () => moveHorizontalRail(companyRail, 1, '.company-card'));
 
-/* ---------- Raxaria: episódios em composição horizontal ---------- */
+const careerLivesRail = document.querySelector('.career-lives-rail');
+document.querySelector('[data-career-lives-previous]')?.addEventListener('click', () => moveHorizontalRail(careerLivesRail, -1, '.media-tile'));
+document.querySelector('[data-career-lives-next]')?.addEventListener('click', () => moveHorizontalRail(careerLivesRail, 1, '.media-tile'));
+
+/* ---------- Raxaria: um episódio principal + quatro em uma linha ---------- */
 
 const raxariaGallery = document.querySelector('[data-raxaria]');
-
-// "Ver todos os episódios": pop-up com o vídeo e a lista de episódios ao lado
-P.items['raxaria-all'] = {
-  id: 'raxaria-all',
-  title: 'Raxaria',
-  type: 'video',
-  videos: P.categories.raxaria.items.map((item) => ({ id: item.youtube, title: item.title })),
-};
-const raxariaStrip = document.querySelector('[data-raxaria-strip]');
+const raxariaRail = document.querySelector('[data-raxaria-rail]');
+const RAXARIA_HIGHLIGHT_IDS = [
+  'I6WtmTS1tDs', // Moto na China
+  'WExe61dPQRA', // Especial Dia dos Pais
+  'nedGaFv5xA8', // Um enquadro da minha mulher
+  'uyvi5YfmqFA', // Vai atacar minha renite mano | TRUCO
+  'z0NifBprNWk', // Sem nome na lista, sempre à direita
+];
 
 function episodeTile(item, className) {
   const link = document.createElement('button');
   link.type = 'button';
   link.className = `media-tile ${className || ''}`.trim();
   link.dataset.play = item.id;
-  link.setAttribute('aria-label', `Assistir: ${item.title}`);
+  link.setAttribute('aria-label', `Watch: ${item.title}`);
   const img = document.createElement('img');
   img.alt = '';
   if (item.youtube) P.setYouTubeImage(img, item.youtube);
   const play = document.createElement('span');
   play.className = 'tile-play';
   play.setAttribute('aria-hidden', 'true');
-  const caption = document.createElement('span');
-  caption.className = 'tile-caption';
-  caption.textContent = item.title;
-  link.append(img, play, caption);
+  link.append(img, play);
   return link;
 }
 
@@ -185,16 +195,15 @@ function loadRaxaria() {
       return { ...item, title: title || item.title };
     })))
     .then((videos) => {
-      if (!videos.length) throw new Error('Sem episódios');
+      if (!videos.length) throw new Error('No episodes');
       videos.forEach((item) => Object.assign(P.items[item.id], item));
       const raxariaCard = P.items['yt-raxaria'];
       if (raxariaCard) raxariaCard.videos = videos.map((item) => ({ id: item.youtube, title: item.title }));
-      P.items['raxaria-all'] = {
-        id: 'raxaria-all',
-        title: 'Raxaria',
-        type: 'video',
-        videos: videos.map((item) => ({ id: item.youtube, title: item.title })),
-      };
+
+      const byYoutube = new Map(videos.map((item) => [item.youtube, item]));
+      const selected = RAXARIA_HIGHLIGHT_IDS.map((id) => byYoutube.get(id)).filter(Boolean);
+      const playlist = selected.map((item) => ({ id: item.youtube, title: item.title }));
+      selected.forEach((item, index) => Object.assign(P.items[item.id], { videos: playlist, start: index }));
 
       // Mantém o Portal KondZilla sem os episódios de Raxaria.
       const portalCard = P.items['yt-portal-kondzilla'];
@@ -209,19 +218,18 @@ function loadRaxaria() {
         });
       }
 
-      const [main, ...rest] = videos;
-      raxariaGallery.replaceChildren(
-        episodeTile(main, 'episode-main'),
-        ...rest.slice(0, 2).map((item) => episodeTile(item)),
-      );
-      raxariaStrip?.replaceChildren(...rest.slice(2, 6).map((item) => episodeTile(item)));
+      const [main, ...rest] = selected.length === 5 ? selected : videos.slice(0, 5);
+      raxariaGallery.replaceChildren(episodeTile(main, 'episode-main'));
+      raxariaRail?.replaceChildren(...rest.slice(0, 4).map((item) => episodeTile(item)));
     })
     .catch(() => {
       const fallback = P.categories.raxaria.items[0];
       if (!fallback) return;
       const main = episodeTile(fallback, 'episode-main');
-      raxariaGallery.replaceChildren(
-        main,
+      raxariaGallery.replaceChildren(main);
+      raxariaRail?.replaceChildren(
+        Object.assign(document.createElement('span'), { className: 'media-tile is-empty' }),
+        Object.assign(document.createElement('span'), { className: 'media-tile is-empty' }),
         Object.assign(document.createElement('span'), { className: 'media-tile is-empty' }),
         Object.assign(document.createElement('span'), { className: 'media-tile is-empty' }),
       );

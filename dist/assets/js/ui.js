@@ -24,7 +24,7 @@
       <div class="media-modal-box">
         <div class="media-modal-bar">
           <p class="media-modal-title" id="media-modal-title"></p>
-          <button class="media-modal-close" type="button" data-modal-close aria-label="Fechar vídeo">×</button>
+          <button class="media-modal-close" type="button" data-modal-close aria-label="Close video">×</button>
         </div>
         <div class="media-modal-frame"></div>
       </div>`;
@@ -57,15 +57,15 @@
   let player = null;        // player da API do YouTube (modo playlist)
   let openToken = 0;
 
-  const isPlayable = (item) => Boolean(item && (item.image || item.instagram || item.youtube || item.playlist || item.spotify || (item.videos && item.videos.length)));
+  const isPlayable = (item) => Boolean(item && (item.image || item.instagram || item.youtube || item.playlist || item.spotify || item.vimeo || (item.videos && item.videos.length)));
 
   function previewNote(item) {
-    const what = item.spotify ? 'o podcast' : item.playlist || item.videos ? 'o vídeo com a playlist ao lado' : 'o vídeo';
-    const link = item.spotify ? 'Ouvir no Spotify' : 'Ver no YouTube';
+    const what = item.spotify ? 'the podcast' : item.playlist || item.videos ? 'the video with its playlist' : 'the video';
+    const link = item.spotify ? 'Listen on Spotify' : item.vimeo ? 'Watch on Vimeo' : 'Watch on YouTube';
     const url = item.videos ? `https://www.youtube.com/watch?v=${item.videos[0].id}` : P.externalUrl(item);
     return `
       <div class="media-modal-note">
-        <p>No site publicado, ${what} toca aqui, neste pop-up.<br>Este preview bloqueia players externos.</p>
+        <p>On the published site, ${what} plays here in this pop-up.<br>This preview blocks external players.</p>
         <a class="text-link" href="${url}" target="_blank" rel="noopener">${link} ↗</a>
       </div>`;
   }
@@ -86,9 +86,12 @@
       if (token !== openToken) return;
       // Sem a API do YouTube: player de playlist padrão, sem a lista lateral
       const ids = item.videos ? item.videos.map((v) => v.id) : null;
+      const initialVideo = item.youtube || (ids && (ids[start] || ids[0]));
       const src = ids
-        ? `https://www.youtube-nocookie.com/embed/${ids[start] || ids[0]}?autoplay=1&rel=0&playsinline=1&playlist=${ids.join(',')}`
-        : `https://www.youtube-nocookie.com/embed/videoseries?list=${item.playlist}&index=${start}&autoplay=1&rel=0&playsinline=1`;
+        ? `https://www.youtube-nocookie.com/embed/${initialVideo}?autoplay=1&rel=0&playsinline=1&playlist=${ids.join(',')}`
+        : item.youtube
+          ? `https://www.youtube-nocookie.com/embed/${item.youtube}?list=${item.playlist}&autoplay=1&rel=0&playsinline=1`
+          : `https://www.youtube-nocookie.com/embed/videoseries?list=${item.playlist}&index=${start}&autoplay=1&rel=0&playsinline=1`;
       const iframe = P.createIframe({ title: item.title }, true);
       iframe.src = src;
       frame.querySelector('.media-modal-player').replaceChildren(iframe);
@@ -114,7 +117,7 @@
         button.type = 'button';
         button.innerHTML = `<img alt="" loading="lazy" src="${P.ytThumb(id, 'mqdefault')}"><span class="media-modal-list-title"></span>`;
         const title = button.querySelector('.media-modal-list-title');
-        title.textContent = known[id] || `Vídeo ${index + 1}`;
+        title.textContent = known[id] || `Video ${index + 1}`;
         if (!known[id]) P.titleFor(id).then((text) => { if (text) title.textContent = text; });
         button.addEventListener('click', () => player && player.playVideoAt(index));
         li.append(button);
@@ -132,6 +135,7 @@
         width: '100%',
         height: '100%',
         host: 'https://www.youtube-nocookie.com',
+        videoId: item.youtube || undefined,
         playerVars: vars,
         events: {
           onReady: (event) => {
@@ -159,7 +163,7 @@
 
     const frame = modal.querySelector('.media-modal-frame');
     modal.querySelector('.media-modal-title').textContent = item.title || '';
-    modal.querySelector('.media-modal-close').setAttribute('aria-label', item.image ? 'Fechar imagem' : 'Fechar vídeo');
+    modal.querySelector('.media-modal-close').setAttribute('aria-label', item.image ? 'Close image' : 'Close video');
     const isList = Boolean(item.playlist || item.videos);
     modal.classList.toggle('is-audio', Boolean(item.spotify));
     modal.classList.toggle('is-playlist', isList && !P.PREVIEW);
@@ -171,7 +175,7 @@
       const image = document.createElement('img');
       image.className = 'media-modal-image';
       image.src = item.cover;
-      image.alt = item.label || item.title || 'Imagem ampliada';
+      image.alt = item.label || item.title || 'Enlarged image';
       frame.replaceChildren(image);
     } else if (P.PREVIEW && !item.instagram) {
       frame.innerHTML = previewNote(item);
@@ -221,11 +225,13 @@
     const media = document.createElement('div');
     media.className = `shelf-media ${variants[index % variants.length]}`;
     if (square) media.classList.add('is-square');
+    if (item.customCover) media.classList.add('has-custom-cover');
     media.setAttribute('aria-hidden', 'true');
 
     if (item.youtube || item.frameOf || item.cover) {
       const img = document.createElement('img');
       img.alt = '';
+      if (item.coverPosition) img.style.objectPosition = item.coverPosition;
       media.append(img);
       media.classList.add('has-image');
       if (item.cover) {
@@ -258,11 +264,11 @@
       media.append(play);
     }
 
-    const badge = item.badge || (item.playlist ? 'Playlist' : item.placeholder ? 'Em breve' : '');
+    const badge = item.badge || (item.playlist ? 'Playlist' : item.placeholder ? 'Coming soon' : '');
     if (badge) {
       const tag = document.createElement('span');
       tag.className = 'shelf-badge';
-      tag.textContent = item.placeholder && item.badge ? `${item.badge} · em breve` : badge;
+      tag.textContent = item.placeholder && item.badge ? `${item.badge} · coming soon` : badge;
       media.append(tag);
     }
 
@@ -280,12 +286,12 @@
       link.type = 'button';
       link.className = 'shelf-link';
       link.dataset.play = item.id;
-      link.setAttribute('aria-label', `${item.image ? 'Ampliar' : 'Assistir'}: ${item.title || item.label || 'vídeo'}`);
+      link.setAttribute('aria-label', `${item.image ? 'Enlarge' : 'Watch'}: ${item.title || item.label || 'video'}`);
       link.append(media);
       article.append(link);
     } else {
       const figure = document.createElement('figure');
-      figure.setAttribute('aria-label', item.title || item.label || 'Frame do vídeo');
+      figure.setAttribute('aria-label', item.title || item.label || 'Video frame');
       figure.append(media);
       article.append(figure);
     }

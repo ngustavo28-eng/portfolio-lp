@@ -15,23 +15,30 @@ window.addEventListener('hashchange', () => window.location.reload());
 
 const cover = document.querySelector('[data-company-cover]');
 const play = document.querySelector('[data-company-play]');
+const staticCover = document.querySelector('[data-company-static]');
+const staticKicker = document.querySelector('[data-company-static-kicker]');
+const staticName = document.querySelector('[data-company-static-name]');
 const heading = document.querySelector('[data-company-heading]');
 
-if (reel && reel.youtube) {
+if (reel?.cover) {
   cover.hidden = false;
   cover.loading = 'eager';
-  P.setYouTubeImage(cover, reel.youtube);
+  cover.src = reel.cover;
+}
+
+if (reel && reel.youtube) {
   play.hidden = false;
+  staticCover.hidden = true;
   play.dataset.play = reel.id;
-  play.setAttribute('aria-label', `Assistir ao demo reel ${company.name}`);
+  play.setAttribute('aria-label', `Watch the ${company.name} demo reel`);
   play.querySelector('[data-company-name]').textContent = company.name;
-  heading.hidden = false;
-  heading.classList.add('sr-only');
   heading.textContent = company.name;
 } else {
-  // Sem demo reel ainda: só o nome
+  // Sem demo reel reproduzível: mantém a capa enviada e mostra a identificação.
   play.remove();
-  heading.hidden = false;
+  staticCover.hidden = false;
+  staticKicker.hidden = true;
+  staticName.textContent = company.name;
   heading.textContent = company.name;
 }
 
@@ -82,3 +89,55 @@ function buildRow(key) {
 }
 
 company.categories.forEach(buildRow);
+
+/* ---------- Experiência na empresa ---------- */
+
+const resume = document.querySelector('[data-company-resume]');
+
+if (resume && company.experience?.length) {
+  const shell = document.createElement('div');
+  shell.className = 'shell company-resume-inner';
+
+  const heading = document.createElement('header');
+  heading.className = 'company-resume-heading';
+  const eyebrow = document.createElement('p');
+  eyebrow.className = 'section-label';
+  eyebrow.textContent = 'Experience';
+  const title = document.createElement('h2');
+  title.id = 'company-resume-title';
+  title.textContent = company.name;
+  const details = document.createElement('p');
+  details.className = 'company-resume-intro';
+  details.textContent = `${company.location} · ${company.summary}`;
+  heading.append(eyebrow, title, details);
+
+  const timeline = document.createElement('ol');
+  timeline.className = 'company-timeline';
+  company.experience.forEach((entry) => {
+    const item = document.createElement('li');
+    const period = document.createElement('p');
+    period.className = 'company-timeline-period';
+    period.textContent = entry.period;
+    const body = document.createElement('div');
+    body.className = 'company-timeline-body';
+    const role = document.createElement('h3');
+    role.textContent = entry.role;
+    body.append(role);
+    if (entry.bullets?.length) {
+      const bullets = document.createElement('ul');
+      entry.bullets.forEach((text) => {
+        const bullet = document.createElement('li');
+        bullet.textContent = text;
+        bullets.append(bullet);
+      });
+      body.append(bullets);
+    }
+    item.append(period, body);
+    timeline.append(item);
+  });
+
+  shell.append(heading, timeline);
+  resume.append(shell);
+} else if (resume) {
+  resume.remove();
+}
