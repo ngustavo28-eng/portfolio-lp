@@ -197,13 +197,19 @@ function loadRaxaria() {
     .then((videos) => {
       if (!videos.length) throw new Error('No episodes');
       videos.forEach((item) => Object.assign(P.items[item.id], item));
+
       const raxariaCard = P.items['yt-raxaria'];
       if (raxariaCard) raxariaCard.videos = videos.map((item) => ({ id: item.youtube, title: item.title }));
 
       const byYoutube = new Map(videos.map((item) => [item.youtube, item]));
       const selected = RAXARIA_HIGHLIGHT_IDS.map((id) => byYoutube.get(id)).filter(Boolean);
-      const playlist = selected.map((item) => ({ id: item.youtube, title: item.title }));
-      selected.forEach((item, index) => Object.assign(P.items[item.id], { videos: playlist, start: index }));
+      // Os cinco cards são apenas um recorte visual. Cada um precisa abrir
+      // a lista completa de Raxaria, na posição do episódio clicado.
+      const fullPlaylist = videos.map((item) => ({ id: item.youtube, title: item.title }));
+      selected.forEach((item) => Object.assign(P.items[item.id], {
+        videos: fullPlaylist,
+        start: Math.max(0, videos.findIndex((video) => video.youtube === item.youtube)),
+      }));
 
       // Mantém o Portal KondZilla sem os episódios de Raxaria.
       const portalCard = P.items['yt-portal-kondzilla'];

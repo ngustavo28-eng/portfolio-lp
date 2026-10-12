@@ -127,6 +127,11 @@
       highlight();
     };
 
+    // GambiCast e as coleções internas já conhecem seus vídeos. Renderizar a
+    // lista antes da API do YouTube garante que a lateral continue visível
+    // mesmo se a API demorar ou estiver bloqueada no preview.
+    if (item.videos?.length) renderList(item.videos.map((video) => video.id));
+
     P.loadYouTubeApi().then((YT) => {
       if (token !== openToken) return;
       const vars = { autoplay: 1, rel: 0, playsinline: 1, modestbranding: 1 };
