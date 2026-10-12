@@ -2573,11 +2573,10 @@ button.media-tile[data-play="ads-executor-de-confianca"]:focus-visible img {
     font-size: 16px;
   }
 
-  /* Na vertical, o guarda-chuva concentra muito peso à esquerda. Um recorte
-     levemente mais à esquerda desloca a composição visível para a direita,
-     preservando o enquadramento central já aprovado no desktop. */
+  /* No vertical, o novo recorte devolve um pouco da composição para a esquerda
+     sem alterar o enquadramento aprovado no desktop. */
   .cover-bg {
-    object-position: 46% center;
+    object-position: 50% center;
   }
 
   .work-shelf {
